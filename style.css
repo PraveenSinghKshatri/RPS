@@ -66,7 +66,7 @@ button:hover {
 button:hover i {
   background-color: #000; /* Change icon background color on hover */
   color: #fff; /* Change icon color on hover */
-  transition: 0.1s;
+  transition: 0.15s;
 }
 
 button:active {
