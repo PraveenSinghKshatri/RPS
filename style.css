@@ -24,8 +24,9 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 50px;
+  gap: 30px;
   width: 60%;
+  max-width: 500px;
   height: 40%;
   border-left: 2px solid #555;
   border-top: 2px solid #555;
@@ -33,6 +34,14 @@ body {
   border-bottom: 2px solid #000;
   border-radius: 25px;
   box-shadow: 8px 8px 8px rgba(173, 21, 21, 0.6);
+}
+
+#score {
+  display: flex;
+  gap: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #buttons {
