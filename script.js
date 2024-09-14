@@ -1,3 +1,4 @@
+const container = document.getElementById("container");
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
@@ -34,14 +35,17 @@ scissors.addEventListener("click", () => playerChoice("scissors"));
 
 function game() {
   if (player === computer) {
+    result.style.color = "orange";
     return (result.textContent = "Draw!");
   } else if (
     (player === "rock" && computer === "scissors") ||
     (player === "paper" && computer === "rock") ||
     (player === "scissors" && computer === "paper")
   ) {
+    result.style.color = "red";
     return (result.textContent = `You Win! Computer picked: ${computer}`);
   } else {
+    result.style.color = "blue";
     return (result.textContent = `You Lose! Computer picked: ${computer}`);
   }
 }
@@ -71,18 +75,24 @@ function endGame() {
       Number(computerScore.textContent) === 5
     ) {
       result.textContent = "Draw! New Game Starts in 5 Seconds";
+      result.style.color = "orange";
     } else if (Number(playerScore.textContent) === 5) {
       result.textContent = "Player Won! New Game Starts in 5 Seconds";
+      result.style.color = "red";
     } else {
       result.textContent = "Computer Won! New Game Starts in 5 Seconds";
+      result.style.color = "blue";
     }
     disableButtons();
+    hideButtons();
     setTimeout(() => {
       playerScore.textContent = "0";
       computerScore.textContent = "0";
       result.textContent = "Play Again";
       isGameOver = false;
+      result.style.color = "#fff";
       enableButtons();
+      showButtons();
     }, 3000);
   }
 }
@@ -97,6 +107,20 @@ function enableButtons() {
   rock.disabled = false;
   paper.disabled = false;
   scissors.disabled = false;
+}
+
+function hideButtons() {
+  const buttons = container.querySelectorAll("button");
+  buttons.forEach(button => {
+    button.style.display = "none";
+  });
+}
+
+function showButtons() {
+  const buttons = container.querySelectorAll("button");
+  buttons.forEach(button => {
+    button.style.display = "inline"; // or "block", "flex", etc., depending on your layout
+  });
 }
 
 // JavaScript to display the range of years in the copyright notice
